@@ -25,16 +25,15 @@ class CustomDataset(Dataset):
         return {'image': image, 'label': label}
 
 transform = transforms.Compose([
-    transforms.Resize((224, 224)),  # размер изображения для модели
-    transforms.ToTensor(),          # преобразование в тензор
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Нормализация (для CLIP и других моделей)
+    transforms.Resize((224, 224)), 
+    transforms.ToTensor(),          
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) 
 ])
 
 dataset = CustomDataset(csv_file='csv_file.csv',
                         root_dir='brands_images',
                         transform=transform)
 
-# загрузчик данных
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=True, num_workers=4)
 
 for data in dataloader:
