@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 def prepare_data(df, image_size=(224, 224)):
     images = []
     labels = []
-    label_map = {label: idx for idx, label in enumerate(df['label'].unique())}  # Создаем маппинг меток
+    label_map = {label: idx for idx, label in enumerate(df['label'].unique())} 
     for _, row in df.iterrows():
         image = Image.open(row['image_path'])
         if image.mode != 'RGB':
