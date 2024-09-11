@@ -104,6 +104,7 @@ def cross_validation(csv_file, num_folds=5):
 
         train_model(model, train_loader, criterion, optimizer)
 
+        
         accuracy = evaluate_model(model, test_loader)
         fold_results.append(accuracy)
         print(f"Accuracy for fold {fold + 1}: {accuracy:.4f}")
